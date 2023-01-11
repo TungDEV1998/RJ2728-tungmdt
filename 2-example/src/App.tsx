@@ -1,52 +1,29 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { IMAGES } from "./assets/images/images";
+import BasicUI1 from './components/homework/Session2/BasicUI1';
+import BasicUI2 from "./components/homework/Session2/BasicUI2";
+import BasicUI3 from './components/homework/Session2/BasicUI3';
 
 
 function App() {
-  return (
-    <div className="App">
-      <header>
-        <h1 className='bg-secondary'>The Pulpit Rock</h1>
-      </header>
-      
-      <div className="row w-100">
-            <div className="col-12 col-md-3 mb-3">
-                <div className='item p-4'>The Drive</div>
-                <div className='item p-4'>The Walk</div>
-                <div className='item p-4'>The Return</div>
-                <div className='item p-4'>The End</div>
-            </div>
-            <div className="col col-md m-3">
-                <h1>The Walk</h1>
-                <p>
-                    The walk to the Pulpit Rock will take you approximately two hours,
-                    give or take an hour depending on the weather conditions and your
-                    physical shape.
-                </p>
-                <img src={IMAGES.LOGO} alt="" />
-                <img src={IMAGES.logo2} alt="" />
-            </div>
-            <div id="div__right" className="col-11 col-md-3 bg-info h-75">
-                <div>
-                    <h1>What?</h1>
-                    <p>
-                        The Pulpit Rock is a part of a mountain that looks like a pulpit.
-                    </p>
-                </div>
-                <div>
-                    <h1>Where?</h1>
-                    <p>The Pulpit Rock is in Norway.</p>
-                </div>
-                <div>
-                    <h1>Price?</h1>
-                    <p>The walk is free!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  );
+    return (
+        <>
+            {/* <BasicUI1 text='BANDWIDTH' color1='red' color2='indianred' percent={20} />
+            <BasicUI1 text='STORAGE' color1='gray' color2='lightcoral' percent={50} />
+            <BasicUI1 text='USERS' color1='green' color2='lightsalmon' percent={70} />
+            <BasicUI1 text='VISITORS' color1='yellow' color2='salmon' percent={30} />
+            <BasicUI1 text='EMAILS' color1='blue' color2='darksalmon' percent={45} />
+            <BasicUI1 text='BASIC' color1='pink' color2='gold' percent={80} />
+            <BasicUI1 text='OTHERS' color1='purple' color2='light yellow' percent={37} />
+            <BasicUI2 logo='logo' text='HTML' color='red' percent={60} /> */}
+            {/* <BasicUI3 title='Facebook' following='Likes' follow={10000} color='blue' logo='https://www.facebook.com/images/fb_icon_325x325.png'/>
+            <BasicUI3 title='Twitter' following='Tweets' follow={10000} color='lightblue' logo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAYeb_5PVn43NJ3TZqG81mKzphwcKHQV81c-vSjLqU&s'/>
+            <BasicUI3 title='Google +' following='Plus' follow={10000} color='orange' logo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIjm7egWOIjEJFuI2S4ysED-yyc0mKTRqeQg&usqp=CAU'/>
+            <BasicUI3 title='Pinterest' following='Pins' follow={10000} color='crimson' logo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSePZKqAlHNdKg_39uh2W0zeN95qW-TfTJbQ&usqp=CAU'/> */}
+            
+        </>
+    );
 }
 
-      export default App;
+export default App;

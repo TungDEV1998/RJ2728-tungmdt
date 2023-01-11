@@ -5,7 +5,7 @@ interface IProps {
     percent?: number
 }
 
-const BasicUI: React.FC<IProps> = (props) => {
+const BasicUI1: React.FC<IProps> = (props) => {
     const { text, color1, color2, percent } = props
     return (
         <div className="progress">
@@ -19,4 +19,4 @@ const BasicUI: React.FC<IProps> = (props) => {
     );
 }
 
-export default BasicUI;
+export default BasicUI1;
