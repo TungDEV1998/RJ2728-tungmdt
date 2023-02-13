@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import Styles from "./Detail.module.css";
+import { useParams } from 'react-router-dom';
 
 interface IUser {
     name: string,
@@ -10,6 +11,8 @@ interface IUser {
 }
 
 function Detail() {
+    let params = useParams();
+    const [idUser, setIdUser] = useState()
     const [user, setUser] = useState<IUser | undefined>({
         name: 'ad',
         age: 21,
@@ -21,7 +24,8 @@ function Detail() {
         getListUser();
     }, []);
     const getListUser = () => {
-        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users/4"
+        console.log(params.id); 
+        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users/" + params.id
         fetch(url, {
             method: 'GET',
 
@@ -34,7 +38,7 @@ function Detail() {
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }
+    };
 
     return (
         <div>

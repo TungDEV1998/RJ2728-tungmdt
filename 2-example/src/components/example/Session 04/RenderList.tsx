@@ -7,6 +7,7 @@ interface IUser {
     id: number;
     name: string;
     age: number;
+    img?: string,
 }
 
 function RenderList({ }: Props) {
@@ -33,8 +34,8 @@ function RenderList({ }: Props) {
 
     
 
-    const deleteUser = () => {
-        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users" 
+    const deleteUser = (userID: string | number) => {
+        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users" + userID
         fetch(url, {
             method: 'DELETE', 
 
@@ -63,7 +64,7 @@ function RenderList({ }: Props) {
                         <td>{item.age}</td>
                         <td>
                             <button>DETAIL</button>
-                            <button onClick={() => deleteUser()}>DELETE</button>
+                            <button onClick={() => deleteUser(item.id)}>DELETE</button>
                         </td>
                     </tr>
                 ))}

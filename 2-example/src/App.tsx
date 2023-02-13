@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import RenderList from './components/example/Session 04/RenderList';
@@ -12,10 +12,17 @@ import Like from './components/homework/Session3/Like';
 import Rating from './components/homework/Session3/Rating';
 import Tabs from './components/homework/Session3/Tabs';
 import Detail from './components/pages/User/Detail/Detail';
-
+import List from './components/pages/User/List/List';
+import Form from './components/pages/User/Form/Form';
+import BaseWebRouter from './components/pages/BaseWebRouter';
+import Login from './components/pages/Auth/Login';
 
 
 function App() {
+
+    const [isLogin, setIsLogin] = useState(false);
+    
+
     return (
         <>
             {/* Basic UI 1 */}
@@ -37,12 +44,18 @@ function App() {
             {/* <Session03 /> */}
             {/* <Like/> */}
             {/* <Rating/> */}
-            {/* <RenderList /> */}
+            {/* <List /> */}
             {/* <Tabs /> */}
-            <Detail/>
-
+            {/* <Detail/> */}
+            {/* <RenderList/> */}
+            {/* <Form/> */}
+            {isLogin ? (<BaseWebRouter setIsLogin={setIsLogin}/>) : (<Login setIsLogin={setIsLogin}/>)}
+            
+            
         </>
     );
 }
 
 export default App;
+
+

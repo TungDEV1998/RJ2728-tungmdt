@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BasicUI1 from './components/homework/Session2/BasicUI1';
-import BasicUI2 from "./components/homework/Session2/BasicUI2";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

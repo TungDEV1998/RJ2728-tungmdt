@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+
 
 type Props = {}
 
@@ -7,18 +9,21 @@ interface IUser {
     id: number;
     name: string;
     age: number;
+    img?: string,
 }
 
 function List({ }: Props) {
     const [listUser, setListUser] = useState<Array<IUser>>([]);
 
+    let navigate = useNavigate();
+
     useEffect(() => {
         getListUser();
     }, []);
     const getListUser = () => {
-        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users"
+        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users";
         fetch(url, {
-            method: 'GET', 
+            method: 'GET',
 
         })
             .then((response) => response.json())
@@ -31,13 +36,10 @@ function List({ }: Props) {
             });
     }
 
-    
-
-    const deleteUser = () => {
-        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users" 
+    const handleDelete = (userID: string | number) => {
+        const url = "https://63758f5b48dfab73a4fb0332.mockapi.io/users/" + userID;
         fetch(url, {
-            method: 'DELETE', 
-
+            method: 'DELETE',
         })
             .then((response) => response.json())
             .then((data) => {
@@ -47,13 +49,22 @@ function List({ }: Props) {
             .catch((error) => {
                 console.error('Error:', error);
             });
+
     }
+
+    // const handleDetail = (userID: string | number) => {
+    //     <link rel="stylesheet" href="" />
+    // }
+
+
 
     return (
         <>
-            <div>RenderList</div>
+            <h1>List User</h1>
             <thead>
-                aaaa
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
             </thead>
             <tbody>
                 {listUser.map((item) => (
@@ -62,8 +73,13 @@ function List({ }: Props) {
                         <td>{item.name}</td>
                         <td>{item.age}</td>
                         <td>
-                            <button>DETAIL</button>
-                            <button onClick={() => deleteUser()}>DELETE</button>
+                            <button onClick={() => {
+                                navigate('/form/' + item.id);
+                            }}>Update</button>
+                            <button onClick={() => {
+                                navigate('/detail/' + item.id);
+                            }}>DETAIL</button>
+                            <button onClick={() => handleDelete(item.id)}>DELETE</button>
                         </td>
                     </tr>
                 ))}
