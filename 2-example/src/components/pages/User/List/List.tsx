@@ -61,29 +61,32 @@ function List({ }: Props) {
     return (
         <>
             <h1>List User</h1>
-            <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
-            </thead>
-            <tbody>
-                {listUser.map((item) => (
-                    <tr key={`${item.id}`}>
-                        <th scope='row'>{item.id}</th>
-                        <td>{item.name}</td>
-                        <td>{item.age}</td>
-                        <td>
-                            <button onClick={() => {
-                                navigate('/form/' + item.id);
-                            }}>Update</button>
-                            <button onClick={() => {
-                                navigate('/detail/' + item.id);
-                            }}>DETAIL</button>
-                            <button onClick={() => handleDelete(item.id)}>DELETE</button>
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
+            <table className='table table-striped'>
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </thead>
+                <tbody>
+                    {listUser.map((item) => (
+                        <tr key={`${item.id}`}>
+                            <th scope='row'>{item.id}</th>
+                            <td>{item.name}</td>
+                            <td>{item.age}</td>
+                            <td>
+                                <button onClick={() => {
+                                    navigate('/form/' + item.id);
+                                }}>Update</button>
+                                <button onClick={() => {
+                                    navigate('/detail/' + item.id);
+                                }}>DETAIL</button>
+                                <button onClick={() => handleDelete(item.id)}>DELETE</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+
+            </table>
 
         </>
 

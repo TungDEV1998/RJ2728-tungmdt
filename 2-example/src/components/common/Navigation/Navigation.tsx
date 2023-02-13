@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import styles from './styles.module.css'
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
 }
 export default function Navigation(props: IProps) {
     const {setIsLogin} = props;
-
+    let navigate = useNavigate();
     return (
         <>
             <ul className={styles.navigation}>
@@ -18,17 +18,21 @@ export default function Navigation(props: IProps) {
                     <NavLink to='/about'>About</NavLink>
                 </li>
                 <li className={styles.link}>
-                    <Link to='/settings'>Settings</Link>
+                    <Link to='/form'>Form</Link>
+                </li>
+                <li className={styles.link}>
+                    <Link to='/home'>Home</Link>
                 </li>
 
                 {/* <li className={styles.link}>
                     <Link to='/search?name=Tony&age=27'>Search</Link>
                 </li> */}
                 <li className={styles.link}>
-                    <Link to='/base-layout'>Home Page</Link>
+                    <Link to='/base-layout'>Admin</Link>
                 </li>
                 <li className={styles.link}>
-                    <button onClick={() => setIsLogin(false)}>Log Out</button>
+                    <button className={styles.button} onClick={() => {setIsLogin(false)
+                    navigate('/')}}>Log Out</button>
                 </li>
             </ul>
         </>
